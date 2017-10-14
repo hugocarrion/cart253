@@ -53,6 +53,13 @@ class Bouncer {
    y = constrain(y,size/2,height-size/2);
  }
  
+void ifMouseClicked(int tempVX, int tempVY){
+ 
+  vx = -tempVX;
+  vy = -tempVY;
+  
+}
+ 
  void handleMouse() {
    if (dist(mouseX,mouseY,x,y) < size/2) {
     fillColor = hoverColor; 
