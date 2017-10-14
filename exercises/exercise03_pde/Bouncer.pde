@@ -5,6 +5,7 @@ class Bouncer {
  int vx;
  int vy;
  int size;
+ int random;
  color fillColor;
  color defaultColor;
  color hoverColor;
