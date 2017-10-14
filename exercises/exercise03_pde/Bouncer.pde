@@ -22,6 +22,9 @@ class Bouncer {
  }
  
  void update() {
+   /*original 2 += 2
+   edit 2 += 2 * 2
+   */
    x += vx;
    y += vy;
    
@@ -30,15 +33,23 @@ class Bouncer {
  }
  
  void handleBounce() {
+   
    if (x - size/2 < 0 || x + size/2 > width) {
-    vx = -vx; 
+    // 2 = -2  
+    //multiplies the speed everytime it bounces on the x axis
+    vx = -vx*2; 
    }
    
    if (y - size/2 < 0 || y + size/2 > height) {
-     vy = -vy;
+     
+     //2 = -2 
+     //multiplies the speed everytime it bounces on the y axis
+     vy = -vy*2;
    }
-   
+   // min=25 max=715
+  // x = constrain(x,size/2,width-size/2);
    x = constrain(x,size/2,width-size/2);
+   // min = 25 max= 265
    y = constrain(y,size/2,height-size/2);
  }
  
