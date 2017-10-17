@@ -17,7 +17,7 @@ Ball ball;
 //initialize values to control game score and decide when game is over
 int pongScoreL;
 int pongScoreR;
-int gameLimit = 100 ;
+int gameLimit = 40 ;
 
 // The distance from the edge of the window a paddle should be
 int PADDLE_INSET = 8;
@@ -47,6 +47,8 @@ void setup() {
 
   // Create the ball at the centre of the screen
   ball = new Ball(width/2, height/2);
+  
+  
  
 }
 
@@ -86,6 +88,8 @@ void draw() {
   showScores();
   
   gameOver();
+  
+  
 }
 //will call methods tha keep track of the score from ball class and display it as text
 void showScores(){

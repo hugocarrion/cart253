@@ -8,8 +8,9 @@ class Ball {
   /////////////// Properties ///////////////
 
   // Default values for speed and size
+  //changed ball size for exercise purpose
   int SPEED = 5;
-  int SIZE = 16;
+  int SIZE = 50;
 
   // The location of the ball
   int x;
@@ -91,11 +92,21 @@ class Ball {
     //ball off left
     if(x + SIZE/2 <0){ 
     scoreL = scoreL + 1;
-    return true;
+    //size decresases if ball does not hit paddle and resets to original size after it reaches size 20
+    SIZE = SIZE -10 ;
+    if(SIZE < 20){
+    SIZE = 50;
+    }
+     return true;
     }
     //ball off right
+    //size decresases if ball does not hit paddle and resets to original size after it reaches size 20
     else if(x-SIZE/2 > width){
     scoreR = scoreR + 1;
+    SIZE = SIZE - 10;
+    if(SIZE < 20){
+    SIZE = 50;
+    }
     return true;
     }
     //else on screen
@@ -120,7 +131,7 @@ class Ball {
   //rests the score of the game to 0
  void resetScore(){
   
-   scoreL = 0;
+   scoreL = 0;  
    scoreR = 0;
  
  }
