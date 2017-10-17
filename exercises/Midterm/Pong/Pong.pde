@@ -14,6 +14,11 @@ Paddle leftPaddle;
 Paddle rightPaddle;
 Ball ball;
 
+//initialize values to control game score and decide when game is over
+int pongScoreL;
+int pongScoreR;
+int gameLimit = 2;
+
 // The distance from the edge of the window a paddle should be
 int PADDLE_INSET = 8;
 
@@ -66,6 +71,9 @@ void draw() {
   // Check if the ball has gone off the screen
   if (ball.isOffScreen()) {
     // If it has, reset the ball
+    
+    pongScoreL = ball.returnScoreL();
+    pongScoreR = ball.returnScoreR();
     ball.reset();
   }
 
@@ -76,12 +84,48 @@ void draw() {
   
   //calls method to display score
   showScores();
+  
+  gameOver();
 }
 //will call methods tha keep track of the score from ball class and display it as text
 void showScores(){
   fill(255);
-  text(ball.returnScoreL(),100,50);
-  text(ball.returnScoreR(), width-100,50);
+  text(pongScoreL,100,50);
+  text(pongScoreR, width-100,50);
+
+}
+
+//calls method that sets the ball speed to zero when game limit is reached and shows message
+void gameOver(){
+  
+  if(pongScoreL == gameLimit){
+  
+    ball.changeVy(0);
+    ball.changeVx(0);
+    text("Right paddle wins!", width/2,height/3 - 40);
+    text("Click to start again",width/2,height/3 +40);
+    restartGame();
+  }
+  
+  
+  if(pongScoreR == gameLimit){
+  
+    ball.changeVy(0);
+    ball.changeVx(0);
+    text("Left paddle wins!", width/2,height/3 -40);
+    text("Click to start again",width/2,height/3 +40);
+    restartGame();
+  }
+}
+//method that restarts game when mouse clicked (does not work rn)
+void restartGame(){
+
+  if(mousePressed){
+  
+    ball.resetScore();
+    ball.changeVy(5);
+    ball.changeVx(5);
+  }
 
 }
 

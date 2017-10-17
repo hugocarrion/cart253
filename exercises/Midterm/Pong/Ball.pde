@@ -23,6 +23,8 @@ class Ball {
   int scoreL;
   int scoreR;
   
+
+  
   // The colour of the ball
   color ballColor = color(255);
 
@@ -115,6 +117,28 @@ class Ball {
   
     return scoreR;  
   }
+  
+ void resetScore(){
+  
+   scoreL = 0;
+   scoreR = 0;
+ 
+ }
+  
+  void changeVy(int newVy){
+     
+    
+    vy = newVy;
+     
+  }
+  
+ void changeVx(int newVx){
+  
+    vx = newVx;
+     
+  }
+  
+ 
 
   // collide(Paddle paddle)
   //
