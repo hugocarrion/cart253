@@ -23,7 +23,7 @@ class Bouncer {
  
  void update() {
    /*original 2 += 2
-   edit 2 += 2 * 2
+   edit   2 += 2 * 2
    */
    x += vx;
    y += vy;
