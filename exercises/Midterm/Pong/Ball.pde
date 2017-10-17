@@ -117,21 +117,23 @@ class Ball {
   
     return scoreR;  
   }
-  
+  //rests the score of the game to 0
  void resetScore(){
   
    scoreL = 0;
    scoreR = 0;
  
  }
-  
+ 
+ //method that takes an int parameter to change the vy variable 
   void changeVy(int newVy){
      
     
     vy = newVy;
      
   }
-  
+ 
+  //method that takes an int parameter to change vx variable
  void changeVx(int newVx){
   
     vx = newVx;
