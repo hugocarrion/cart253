@@ -15,15 +15,13 @@ Paddle rightPaddle;
 Ball ball;
 
 //initialize values to control game score and decide when game is over
-int pongScoreL;
-int pongScoreR;
-int gameLimit = 40 ;
+int gameLimit = 5;
 
 // The distance from the edge of the window a paddle should be
 int PADDLE_INSET = 8;
 
 // The background colour during play (black)
-color backgroundColor = color(0);
+color backgroundColor = color(150,150,200);
 
 
 // setup()
@@ -42,8 +40,8 @@ void setup() {
   // Also pass through the two keys used to control 'up' and 'down' respectively
   // NOTE: On a mac you can run into trouble if you use keys that create that popup of
   // different accented characters in text editors (so avoid those if you're changing this)
-  leftPaddle = new Paddle(PADDLE_INSET, height/2, 'a', 'z');
-  rightPaddle = new Paddle(width - PADDLE_INSET, height/2, 'k', 'm');
+  leftPaddle = new Paddle(PADDLE_INSET, height/2, '1', 'q');
+  rightPaddle = new Paddle(width - PADDLE_INSET, height/2, '0', 'p');
 
   // Create the ball at the centre of the screen
   ball = new Ball(width/2, height/2);
@@ -74,8 +72,6 @@ void draw() {
   if (ball.isOffScreen()) {
     // If it has, reset the ball
     
-    pongScoreL = ball.returnScoreL();
-    pongScoreR = ball.returnScoreR();
     ball.reset();
   }
 
@@ -94,15 +90,15 @@ void draw() {
 //will call methods tha keep track of the score from ball class and display it as text
 void showScores(){
   fill(255);
-  text(pongScoreL,100,50);
-  text(pongScoreR, width-100,50);
+  text(ball.scoreR,100,50);
+  text(ball.scoreL, width-100,50);
 
 }
 
 //calls method that sets the ball speed to zero when game limit is reached and shows message
 void gameOver(){
   
-  if(pongScoreL == gameLimit){
+  if(ball.scoreL == gameLimit){
   
     ball.changeVy(0);
     ball.changeVx(0);
@@ -112,7 +108,7 @@ void gameOver(){
   }
   
   
-  if(pongScoreR == gameLimit){
+  if(ball.scoreR == gameLimit){
   
     ball.changeVy(0);
     ball.changeVx(0);

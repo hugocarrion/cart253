@@ -72,6 +72,12 @@ class Paddle {
     // Draw the paddle as a rectangle
     rect(x, y, WIDTH, HEIGHT);
   }
+  //method that changes the paddle color and takes a color type as parameter
+  void changePaddleColor(color randCol){
+  
+    paddleColor = randCol;
+  
+  }
 
   // keyPressed()
   //

@@ -24,10 +24,10 @@ class Ball {
   int scoreL;
   int scoreR;
   
-
-  
+//variable that will generate a random color and paddle
+  color randomColor;
   // The colour of the ball
-  color ballColor = color(255);
+  color ballColor = color(random(255),random(255),random(255));
 
 
   /////////////// Constructor ///////////////
@@ -104,7 +104,7 @@ class Ball {
     else if(x-SIZE/2 > width){
     scoreR = scoreR + 1;
     SIZE = SIZE - 10;
-    if(SIZE < 20){
+    if(SIZE < 2){
     SIZE = 50;
     }
     return true;
@@ -172,9 +172,20 @@ class Ball {
       if (vx < 0) {
         // Reset its position to align with the right side of the paddle
         x = paddle.x + paddle.WIDTH/2 + SIZE/2;
+        //generates random color when ball hits left paddle
+        randomColor = color(random(255),random(255),random(255));
+        //changes ball calor depending on the random color generated for paddle
+       ballColor = randomColor;
+        paddle.changePaddleColor(randomColor);
+        
       } else if (vx > 0) {
         // Reset its position to align with the left side of the paddle
         x = paddle.x - paddle.WIDTH/2 - SIZE/2;
+                //generates random color when ball hits right paddle
+        randomColor = color(random(255),random(255),random(255));
+         //changes ball calor depending on the random color generated for paddle
+         ballColor = randomColor;
+        paddle.changePaddleColor(randomColor);
       }
       // And make it bounce
       vx = -vx;
