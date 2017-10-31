@@ -8,9 +8,9 @@ class Paddle {
   /////////////// Properties ///////////////
 
   // Default values for speed and size
-  int SPEED = 5;
-  int HEIGHT = 70;
-  int WIDTH = 16;
+  int SPEED = 10;
+  int HEIGHT = 100;
+  int WIDTH = 40;
 
   // The position and velocity of the paddle (note that vx isn't really used right now)
   int x;
