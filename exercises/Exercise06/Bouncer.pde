@@ -21,6 +21,8 @@ class Bouncer {
 
   // The default fill colour of the Bouncer
   color defaultColor;
+  
+  
 
   // Bouncer(tempX,tempY,tempVX,tempVY,tempSize,tempDefaultColor)
   //
@@ -68,6 +70,15 @@ class Bouncer {
     // Make sure the Bouncer isn't off the edge
     x = constrain(x, size/2, width-size/2);
     y = constrain(y, size/2, height-size/2);
+  }
+   
+    void changeBouncer(){
+   
+    //changes to a random size and color 
+    size = random(50);
+    fillColor = color(random(255),random(255),random(255));
+  
+  
   }
 
 

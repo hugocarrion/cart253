@@ -55,6 +55,8 @@ void draw() {
   for (int i = 0; i < bouncers.length; i++) {
    bouncers[i].update();
    bouncers[i].display();
+  
+   
   }
   
   // For now we just draw a crappy ellipse at the brightest pixel
@@ -95,7 +97,7 @@ void handleVideoInput() {
       float pixelBrightness = brightness(pixelColor);
       // Check if this pixel is the brighest we've seen so far
       if (pixelBrightness > brightnessRecord) {
-       
+        bouncers[int(random(10))].changeBouncer();// the higher the brightness the less the change in color and size
         // If it is, change the record value
         brightnessRecord = pixelBrightness;
         // Remember where this pixel is in the the grid of pixels
@@ -104,10 +106,8 @@ void handleVideoInput() {
         brightestPixel.x = x;
         brightestPixel.y = y;
       }
-      // changes bouncers behaviour depending on the light(speed and colour)
-      if (pixelBrightness < brightnessRecord){
-       bouncers[int(random(1,10))] = new Bouncer(random(0,width),random(0,height),random(-10,10),random(-50,50),random(10,50),color(random(255),random(255),random(255),random(255)));
-      }
+      // changes bouncers behaviour (speed and colour depe
+    
     }
   }
 }
