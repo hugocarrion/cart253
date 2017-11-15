@@ -1,4 +1,4 @@
-// Pong
+  // Pong
 //\
 
 // A simple version of Pong using object-oriented programming.
@@ -14,7 +14,9 @@ import processing.sound.*;
 
 SoundFile file;
  String audioName = "wednesday.mp3";
-    String path;
+String path;
+
+TriOsc tri;
 
 // Global variables for the paddles and the ball
 Paddle leftPaddle;
@@ -46,6 +48,12 @@ void setup() {
   path = sketchPath(audioName);
   file = new SoundFile(this, audioName);
   
+   tri = new TriOsc(this);
+    
+    //Start the Sine Oscillator. There will be no sound in the beginning
+    //unless the mouse enters the   
+     tri.play();
+    
   
 
   // Create the paddles on either side of the screen. 
@@ -154,7 +162,7 @@ void restartGame(){
     ball.resetScore();
     ball.changeVy(5);
     ball.changeVx(5);
-    
+    file.play();
   }
 
 }
@@ -167,8 +175,11 @@ void restartGame(){
 
 void keyPressed() {
   // Just call both paddles' own keyPressed methods
-  leftPaddle.keyPressed();
+  leftPaddle.keyPressed(); 
+  //tri.freq();
   rightPaddle.keyPressed();
+ //added oscillator
+  tri.amp(1.5);
 }
 
 // keyReleased()
@@ -179,4 +190,6 @@ void keyReleased() {
   // Call both paddles' keyReleased methods
   leftPaddle.keyReleased();
   rightPaddle.keyReleased();
+  //added oscillator
+  tri.amp(0.5);
 }
