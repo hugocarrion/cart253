@@ -159,7 +159,7 @@ class Ball {
   // If it is, it makes the ball bounce away from the paddle by reversing its
   // x velocity
 
-  void collide(Paddle paddle) {
+  boolean collide(Paddle paddle) {
     // Calculate possible overlaps with the paddle side by side
     boolean insideLeft = (x + SIZE/2 > paddle.x - paddle.WIDTH/2);
     boolean insideRight = (x - SIZE/2 < paddle.x + paddle.WIDTH/2);
@@ -177,7 +177,7 @@ class Ball {
         //changes ball calor depending on the random color generated for paddle
        ballColor = randomColor;
         paddle.changePaddleColor(randomColor);
-        
+       
       } else if (vx > 0) {
         // Reset its position to align with the left side of the paddle
         x = paddle.x - paddle.WIDTH/2 - SIZE/2;
@@ -186,10 +186,15 @@ class Ball {
          //changes ball calor depending on the random color generated for paddle
          ballColor = randomColor;
         paddle.changePaddleColor(randomColor);
+        
+     
       }
       // And make it bounce
       vx = -vx;
+      return true;
     }
+    
+    return false;
   }
 
   // display()

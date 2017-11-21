@@ -13,8 +13,12 @@
 import processing.sound.*;
 
 SoundFile file;
+SoundFile fileTwo;
  String audioName = "wednesday.mp3";
 String path;
+
+
+String audioName2 = "bounce.mp3";
 
 TriOsc tri;
 
@@ -47,6 +51,8 @@ void setup() {
   
   path = sketchPath(audioName);
   file = new SoundFile(this, audioName);
+  
+  fileTwo = new SoundFile(this, audioName2);
   
    tri = new TriOsc(this);
     
@@ -91,8 +97,15 @@ void draw() {
   ball.update();
 
   // Check if the ball has collided with either paddle
-  ball.collide(leftPaddle);
-  ball.collide(rightPaddle);
+  
+  if(ball.collide(leftPaddle)){
+  fileTwo.play();
+
+}
+  if(ball.collide(rightPaddle)){
+  
+  fileTwo.play();
+  }
 
   // Check if the ball has gone off the screen
   if (ball.isOffScreen()) {
