@@ -1,18 +1,20 @@
 //Trex trex;
 Dino dino;
-//Fireball fireball;
+Fallout fallout;
 
-  
+  //calls images to class
   PImage bg;
 //int x;
 //int y;
 PImage greendino;
+PImage falloutpic;
 
-
+//
 void setup() {
   size(1096, 616);
   bg = loadImage("asteroid.jpg");
   dino = new Dino();
+  fallout = new Fallout();
   
 }
 
@@ -22,6 +24,12 @@ void draw() {
   greendino = loadImage("greendino.png");
   dino.update();
   dino.display();
+  
+  falloutpic = loadImage("fallout.png");
+  //fallout.updateFireball();
+  fallout.displayFireball();
+  
+  
 }
 
   
