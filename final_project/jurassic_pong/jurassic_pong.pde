@@ -2,6 +2,8 @@
 Dino dino;
 Fallout fallout;
 
+int fireballs = 3;
+
   //calls images to class
   PImage bg;
 //int x;
@@ -25,8 +27,11 @@ void draw() {
   dino.update();
   dino.display();
   
-  falloutpic = loadImage("fallout.png");
+  
+  
+  //falloutpic = loadImage("fallout.png");
   //fallout.updateFireball();
+
   fallout.displayFireball();
   
   
