@@ -27,12 +27,9 @@ void draw() {
   dino.update();
   dino.display();
   
-  
-  
-  //falloutpic = loadImage("fallout.png");
-  //fallout.updateFireball();
-
+  //
   fallout.displayFireball();
+  fallout.updateFireball();
   
   
 }

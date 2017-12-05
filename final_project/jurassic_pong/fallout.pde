@@ -1,33 +1,39 @@
 //create fallout class
 class Fallout{
-float [] x; //array for starting fireball position
+float x; 
 float y;
-int fireballs = 5;
-PImage [] photo;
+float vy;
+int fireballs = 1;
+PImage photo;
 
 Fallout(){
 
-  x= new float[fireballs];
+  x= random(width); 
   
   y = 0;
+  
+  vy = random(10,15); //controls fireball speed
 
-  photo=new PImage[fireballs];
-  for(int i=0;i<photo.length;i++){
-  x[i] = random(width);
-  photo[i]=loadImage("fallout.png");
+  photo=loadImage("fallout.png");
+  
+  
 
-}
 }
 
 void displayFireball(){
- 
-
-   
-  for(int i=0;i<photo.length;i++){
-  y = y + 2; // image goes down this many pixels per frame
-  image(photo[i],x[i],y);
-  }
+  
+  y += vy;
+  image(photo,x,y);
 }
 
 
+void updateFireball(){
+  //if fireball reaches bottom, resets x and y
+  if(y > height+15){
+    y = -15;
+    x = random(width);
+    
+  
+}
+}
 }
